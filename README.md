@@ -2,10 +2,6 @@
 
 Make figures with matplotlib (https://matplotlib.org/) and inkscape (https://inkscape.org/)
 
-
-[![PyPI - Version](https://img.shields.io/pypi/v/mplinkfig.svg)](https://pypi.org/project/mplinkfig)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mplinkfig.svg)](https://pypi.org/project/mplinkfig)
-
 -----
 
 **Table of Contents**
@@ -81,7 +77,7 @@ ax.set_ylabel('ylabel2')
 
 ### Save it using InkFig
 ```console
-InkFig(fig, 'exemple.svg', show=True)
+inkfig(fig, 'exemple.svg', show=True)
 ```
 
 ### After some modifications with inkscape, we can modify the figure with mpl without loosing the modifications performed with inkscape
@@ -110,7 +106,7 @@ ax.set_xlabel('xlabel2')
 ax.set_ylabel('ylabel2')
 ax.legend(frameon=False)
 
-InkFig(fig,'exemple.svg', show=True)
+inkfig(fig,'exemple.svg', show=True)
 ```
 We can restart these operations until we obtain the desired result.
 

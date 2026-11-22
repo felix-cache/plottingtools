@@ -3,11 +3,65 @@ import os
 from os.path import getmtime
 import datetime
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import numpy as np
 from IPython.display import display, SVG
 from lxml import etree
 from lxml.etree import XMLParser, parse
+from matplotlib.colors import to_rgb
+
+
 huge_parser = XMLParser(huge_tree=True)
+
+
+def lighten(c, alpha=0.2):
+    """Opaque color that looks like c at the given alpha on white."""
+    c = np.array(to_rgb(c))
+    return tuple(1 - alpha * (1 - c))
+
+
+def tickslocator(X=None,x=None,Y=None,y=None):
+    if (X!=None)&(X!=0):
+        #print('X')
+        plt.gca().xaxis.set_major_locator(MultipleLocator(X))
+    if (x!=None)&(x!=0):
+        #print('x')
+        plt.gca().xaxis.set_minor_locator(MultipleLocator(x))
+    if (Y!=None)&(Y!=0):
+        #print('Y')
+        plt.gca().yaxis.set_major_locator(MultipleLocator(Y))
+    if (y!=None)&(y!=0):
+        #print('y')
+        plt.gca().yaxis.set_minor_locator(MultipleLocator(y))
+
+
+
+def figmargins(x0,x1,y0,y1):
+    """ figure margins in inches"""
+    plt.gcf().subplots_adjust(
+        left=figunits(x0,'x'),
+        top=1-figunits(x1,'y'),
+        right=1-figunits(y0,'x'),
+        bottom=figunits(y1,'y')
+        )
+
+
+def mplparams(params={}):
+
+    if params=='ppt':
+        params = {
+            'font.size': 10,
+            'axes.titlesize': 12,
+            'axes.labelsize': 10,
+            'xtick.labelsize': 10,
+            'ytick.labelsize': 10,
+            'legend.fontsize': 10,
+            'legend.title_fontsize': 10,
+            'figure.titlesize': 12,
+            'figure.labelsize': 12,
+        }
+    mpl.rcParams.update(params)
+
 
 def figunits(value,axis='x',fig=None):
     """ convert inches to figure units (fraction of the width if axis='x', height if axis='y') """
@@ -300,32 +354,3 @@ def showSVG(fname):
         print('error')
 
 
-#def reformat_b2l(fname):
-    #lines = open(fname,'r').readlines()
-    #f = open(fname,'w')
-    #new_lines = []
-    #b2l = lines[0][-1]
-    #add_line = True
-    #i=0
-    #while i < len(lines):
-        #if add_line: new_lines.append(lines[i])
-        #l = new_lines[-1]
-        #for j in range(len(l)):
-            #add_line = True
-            #if l[j:j+2]=='><':
-                #new_lines[-1]= l[:j+1]+b2l
-                #new_lines.append(l[j+1:])
-                #add_line = False
-                #break
-        #if j==len(l)-1:
-            #add_line = True
-            #i+=1
-    #for l in new_lines: f.write(l)
-    #f.close()
-
-#def fix_xml_space(svgfile):
-    #with open(svgfile, 'r') as f:
-        #content = f.read()
-    #content = content.replace('xml:space="preserve"', 'xml:space="default"')
-    #with open(svgfile, 'w') as f:
-        #f.write(content)

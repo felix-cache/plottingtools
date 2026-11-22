@@ -2,7 +2,12 @@
 #
 # SPDX-License-Identifier: MIT
 
-from .main import figunits, InkFig, showSVG
+from .main import figunits
+from .main import tickslocator
+from .main import figmargins
+from .main import lighten
+from .main import InkFig as inkfig
+from .main import showSVG as showsvg
 from .main import svg_to_pdf as svg2pdf
 from .main import svg_to_png as svg2png
 

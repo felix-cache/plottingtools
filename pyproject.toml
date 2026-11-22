@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "mplinkfig"
+name = "plottingtools"
 #dynamic = ["version"]
 version = "0.1"
 description = 'Make nice figures with matplotlib and inkscape'
@@ -35,12 +35,12 @@ dependencies = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/felix-cache/mplinkfig#readme"
-Issues = "https://github.com/felix-cache/mplinkfig/issues"
-Source = "https://github.com/felix-cache/mplinkfig"
+Documentation = "https://github.com/felix-cache/plotting tools#readme"
+Issues = "https://github.com/felix-cache/plottingtools/issues"
+Source = "https://github.com/felix-cache/plottingtools"
 
 #[tool.hatch.version]
-#path = "src/mplinkfig/__about__.py"
+#path = "src/plottingtools/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -67,19 +67,19 @@ dependencies = [
   "mypy>=1.0.0",
 ]
 [tool.hatch.envs.types.scripts]
-check = "mypy --install-types --non-interactive {args:src/mplinkfig tests}"
+check = "mypy --install-types --non-interactive {args:src/plottingtools tests}"
 
 [tool.coverage.run]
-source_pkgs = ["mplinkfig", "tests"]
+source_pkgs = ["plottingtools", "tests"]
 branch = true
 parallel = true
 omit = [
-  "src/mplinkfig/__about__.py",
+  "src/plottingtools/__about__.py",
 ]
 
 [tool.coverage.paths]
-mplinkfig = ["src/mplinkfig", "*/mplinkfig/src/mplinkfig"]
-tests = ["tests", "*/mplinkfig/tests"]
+plottingtools = ["src/plottingtools", "*/plottingtools/src/plottingtools"]
+tests = ["tests", "*/plottingtools/tests"]
 
 [tool.coverage.report]
 exclude_lines = [
