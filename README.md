@@ -1,4 +1,4 @@
-# mplinkfig
+# plottingtools
 
 Make figures with matplotlib (https://matplotlib.org/) and inkscape (https://inkscape.org/)
 
@@ -28,7 +28,7 @@ pip install git+https://github.com/felix-cache/plottingtools.git
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-from mplinkfig import figunits, InkFig
+from plottingtools import figunits, inkfig
 ```
 
 
