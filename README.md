@@ -17,12 +17,12 @@ Make figures with matplotlib (https://matplotlib.org/) and inkscape (https://ink
 ## Installation
 
 ```console
-pip install git+https://github.com/felix-cache/mplinkfig.git
+pip install git+https://github.com/felix-cache/plottingtools.git
 ```
 
 ## License
 
-`mplinkfig` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+`plottingtools` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
 
 
 ## Exemple
@@ -35,34 +35,6 @@ import matplotlib.pyplot as plt
 from mplinkfig import figunits, InkFig
 ```
 
-### Change matplotlib settings
-```console
-mpl_params = {
-        "text.usetex": False,
-        "font.family": "sans-serif",
-        "axes.labelsize": 7,
-        "font.size": 7,
-        "legend.fontsize": 6,
-        "xtick.labelsize": 6,
-        "ytick.labelsize": 6,
-        "xtick.direction": 'out',
-        "ytick.direction": 'out',
-        "xtick.major.size" : 3.5,
-        "ytick.major.size" : 3.5,
-        "xtick.major.width" : .4,
-        "ytick.major.width" : .4,
-        "xtick.minor.size" : 2,
-        "ytick.minor.size" : 2,
-        "xtick.minor.width" : .4,
-        "ytick.minor.width" : .4,
-        "xtick.major.pad"  : 2,
-        "ytick.major.pad"  : 2,
-        "axes.labelpad"    : 2,
-        'axes.linewidth' : .4,
-        "axes.facecolor":  (1.0, 1.0, 1.0, 0)
-}
-mpl.rcParams.update(mpl_params)
-```
 
 ### Data to plot
 ```console
